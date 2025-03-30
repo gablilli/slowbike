@@ -1,1 +1,1 @@
-GPX Files for slowbikegubbio.it, working with gpx.studio.
+Files for slowbikegubbio.it.
