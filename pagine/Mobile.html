@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>SlowBike Gubbio</title>
+  <link rel="icon" type="image/x-icon" href="/youriconhere.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Preloader */
+    #preloader {
+      background-color: #FFEDD5; /* Sfondo simile al bordo del video */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      z-index: 999999;
+      transform: translateY(0);
+      transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    /* Quando parte la salita */
+    #preloader.slide-up {
+      transform: translateY(-100%);
+    }
+
+    /* Video */
+    #preloader video {
+      max-width: 100vw;
+      max-height: 100vh;
+      object-fit: contain;
+      object-position: center;
+      transform: none; /* niente scale */
+    }
+
+    /* iframe container */
+    #iframe-container {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 108%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    #iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <video autoplay muted playsinline>
+    <source src="https://slowbikegubbio.it/preloader.m4v" type="video/mp4">
+    Il tuo browser non supporta il video HTML5.
+  </video>
+</div>
+
+<!-- IFRAME SITO -->
+<div id="iframe-container">
+  <iframe src="https://gabrielelilli1105.wixstudio.io/slowbike" scrolling="yes"></iframe>
+</div>
+
+<!-- SCRIPT -->
+<script>
+// Controlla se è mobile
+const isMobile = screen.width <= 900;
+
+// Trova gli elementi
+const iframe = document.querySelector("#iframe-container iframe");
+const preloader = document.getElementById("preloader");
+
+// Se è mobile ➔ usa timer fisso (tipo 4800ms)
+if (isMobile) {
+  setTimeout(function() {
+    preloader.classList.add("slide-up");
+  }, 4800);
+} 
+// Altrimenti ➔ desktop ➔ aspetta il caricamento dell'iframe
+else {
+  iframe.addEventListener("load", function() {
+    setTimeout(function() {
+      preloader.classList.add("slide-up");
+    }, 300);
+  });
+}
+
+</script>
+
+</body>
+</html>
