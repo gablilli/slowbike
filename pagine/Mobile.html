@@ -9,7 +9,7 @@
   <style>
     /* Preloader */
     #preloader {
-      background-color: #FFEDD5; /* Sfondo simile al bordo del video */
+      background-color: #FFEDD5; /* Sfondo */
       position: fixed;
       top: 0;
       left: 0;
@@ -35,7 +35,7 @@
       max-height: 100vh;
       object-fit: contain;
       object-position: center;
-      transform: none; /* niente scale */
+      transform: none; 
     }
 
     /* iframe container */
@@ -78,20 +78,20 @@
 
 <!-- SCRIPT -->
 <script>
-// Controlla se è mobile
+// Controllo se è mobile
 const isMobile = screen.width <= 900;
 
-// Trova gli elementi
+// Trovo gli elementi
 const iframe = document.querySelector("#iframe-container iframe");
 const preloader = document.getElementById("preloader");
 
-// Se è mobile ➔ usa timer fisso (tipo 4800ms)
+// Se è mobile ➔ uso timer fisso (tipo 4800ms)
 if (isMobile) {
   setTimeout(function() {
     preloader.classList.add("slide-up");
   }, 4800);
 } 
-// Altrimenti ➔ desktop ➔ aspetta il caricamento dell'iframe
+// Altrimenti ➔ desktop ➔ aspetto il caricamento dell'iframe
 else {
   iframe.addEventListener("load", function() {
     setTimeout(function() {
