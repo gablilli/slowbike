@@ -1,76 +1,70 @@
-<style>
-/* Preloader */
-#preloader {
-  background-color: #FFEDD5;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  z-index: 999999;
-  transform: translateY(0);
-  transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
-}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Slow Bike Gubbio</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    /* Preloader */
+    #preloader {
+      background-color: #FFEDD5;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      z-index: 999999;
+      transform: translateY(0);
+    }
 
-/* Quando parte la salita */
-#preloader.slide-up {
-  transform: translateY(-100%);
-}
+    /* Animazione salita */
+    #preloader.slide-up {
+      transform: translateY(-100%);
+      transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
 
-/* Video */
-#preloader video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  object-position: center;
-}
+    /* Video */
+    #preloader video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center;
+    }
 
-/* Container iframe */
-#iframe-container {
-  position: absolute;
-  top: -29px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 105%;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-  z-index: 1;
-}
+    /* Container iframe */
+    #iframe-container {
+      position: absolute;
+      top: -29px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 105%;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+      z-index: 1;
+    }
 
-/* iframe */
-#iframe-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-</style>
-
-<script type="text/javascript">
-// Redirect mobile
-if (screen.width <= 900) {
-  window.location.href = "/Mobile.html";
-}
-
-// salita dopo 4800ms
-document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(function() {
-    const preloader = document.getElementById("preloader");
-    preloader.classList.add("slide-up");
-  }, 4800); 
-});
-</script>
+    /* iframe */
+    #iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
 
 <!-- PRELOADER -->
 <div id="preloader">
   <video autoplay muted playsinline>
-    <source src="https://slowbikegubbio.it/preloader.m4v" type="video/mp4">
+    <source src="https://slowbikegubbio.it/preloader2.mp4" type="video/mp4">
     Il tuo browser non supporta il video HTML5.
   </video>
 </div>
@@ -79,3 +73,33 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="iframe-container">
   <iframe src="https://gabrielelilli1105.wixstudio.io/slowbike" scrolling="yes"></iframe>
 </div>
+
+<script type="text/javascript">
+  // Redirect su mobile
+  if (screen.width <= 900) {
+    window.location.href = "/Mobile.html";
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const preloader = document.getElementById("preloader");
+    const alreadyVisited = localStorage.getItem("preloaderSeen");
+
+    if (!alreadyVisited) {
+      // Mostra il video per 4.8s, poi fa la salita
+      setTimeout(function() {
+        preloader.classList.add("slide-up");
+        // Dopo l'animazione (1.8s), rimuove il preloader
+        setTimeout(function() {
+          preloader.style.display = "none";
+          localStorage.setItem("preloaderSeen", "true");
+        }, 1800);
+      }, 4800);
+    } else {
+      // Salta il preloader se l'ha già visto
+      preloader.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>
