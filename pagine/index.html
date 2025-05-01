@@ -2,30 +2,38 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Slow Bike Gubbio</title>
+  <title>Home | SlowBike Gubbio</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
     /* Preloader */
     #preloader {
       background-color: #FFEDD5;
       position: fixed;
-      width: 100vw;
-      height: 100vh;
       top: 0;
       left: 0;
+      width: 100vw;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
       z-index: 999999;
       transform: translateY(0);
+      transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
     }
 
     /* Animazione salita */
     #preloader.slide-up {
       transform: translateY(-100%);
-      transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
     }
 
     /* Video */
@@ -34,24 +42,22 @@
       height: 100vh;
       object-fit: cover;
       object-position: center;
+      transform:scale(1.05);
     }
 
-    /* Container iframe */
+    /* Iframe container */
     #iframe-container {
       position: absolute;
-      top: -29px;
+      top: -30px; 
       left: 0;
-      right: 0;
-      bottom: 0;
       width: 100%;
-      height: 105%;
+      height: calc(100% + 30px);
       margin: 0;
       padding: 0;
-      overflow: auto;
+      overflow: hidden;
       z-index: 1;
     }
 
-    /* iframe */
     #iframe-container iframe {
       width: 100%;
       height: 100%;
@@ -59,46 +65,45 @@
     }
   </style>
 </head>
+
 <body>
 
 <!-- PRELOADER -->
 <div id="preloader">
   <video autoplay muted playsinline>
-    <source src="https://slowbikegubbio.it/preloader2.mp4" type="video/mp4">
+    <source src="https://slowbikegubbio.it/preloader3.mp4" type="video/mp4">
     Il tuo browser non supporta il video HTML5.
   </video>
 </div>
 
-<!-- IFRAME SITO -->
+<!-- IFRAME -->
 <div id="iframe-container">
   <iframe src="https://gabrielelilli1105.wixstudio.io/slowbike" scrolling="yes"></iframe>
 </div>
 
-<script type="text/javascript">
-  // Redirect su mobile
-  if (screen.width <= 900) {
-    window.location.href = "/Mobile.html";
+<!-- SCRIPT -->
+<script>
+  const isMobile = screen.width <= 900;
+  const iframe = document.querySelector("#iframe-container iframe");
+  const preloader = document.getElementById("preloader");
+  const hasSeen = localStorage.getItem("slowbike_preloader_seen");
+
+  function hidePreloader() {
+    preloader.classList.add("slide-up");
+    localStorage.setItem("slowbike_preloader_seen", "true");
   }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const preloader = document.getElementById("preloader");
-    const alreadyVisited = localStorage.getItem("preloaderSeen");
-
-    if (!alreadyVisited) {
-      // Mostra il video per 4.8s, poi fa la salita
-      setTimeout(function() {
-        preloader.classList.add("slide-up");
-        // Dopo l'animazione (1.8s), rimuove il preloader
-        setTimeout(function() {
-          preloader.style.display = "none";
-          localStorage.setItem("preloaderSeen", "true");
-        }, 1800);
-      }, 4800);
+  if (hasSeen === "true") {
+    preloader.style.display = "none";
+  } else {
+    if (isMobile) {
+      setTimeout(hidePreloader, 4800); 
     } else {
-      // Salta il preloader se l'ha già visto
-      preloader.style.display = "none";
+      iframe.addEventListener("load", () => {
+        setTimeout(hidePreloader, 4800); 
+      });
     }
-  });
+  }
 </script>
 
 </body>
