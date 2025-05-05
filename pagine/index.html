@@ -36,13 +36,21 @@
       transform: translateY(-100%);
     }
 
-    /* Video */
+    /* Video desktop */
     #preloader video {
       width: 100vw;
       height: 100vh;
       object-fit: cover;
       object-position: center;
-      transform:scale(1.05);
+      transform: scale(1.05);
+    }
+
+    /* Adattamento mobile */
+    @media (max-width: 900px) {
+      #preloader video {
+      object-fit: contain;
+      transform: scale(1);
+      }
     }
 
     /* Iframe container */
@@ -87,13 +95,18 @@
   const iframe = document.querySelector("#iframe-container iframe");
   const preloader = document.getElementById("preloader");
   const hasSeen = localStorage.getItem("slowbike_preloader_seen");
+  const lastSeen = localStorage.getItem("slowbike_preloader_last_seen");
+
+  const now = new Date().getTime();
+  const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
 
   function hidePreloader() {
     preloader.classList.add("slide-up");
     localStorage.setItem("slowbike_preloader_seen", "true");
+    localStorage.setItem("slowbike_preloader_last_seen", now);
   }
 
-  if (hasSeen === "true") {
+  if (hasSeen === "true" && lastSeen && (now - lastSeen < TWENTY_FOUR_HOURS)) {
     preloader.style.display = "none";
   } else {
     if (isMobile) {
