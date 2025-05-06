@@ -90,6 +90,7 @@
 </div>
 
 <!-- SCRIPT -->
+<!-- SCRIPT -->
 <script>
   const isMobile = screen.width <= 900;
   const iframe = document.querySelector("#iframe-container iframe");
@@ -109,13 +110,7 @@
   if (hasSeen === "true" && lastSeen && (now - lastSeen < TWENTY_FOUR_HOURS)) {
     preloader.style.display = "none";
   } else {
-    if (isMobile) {
-      setTimeout(hidePreloader, 4800); 
-    } else {
-      iframe.addEventListener("load", () => {
-        setTimeout(hidePreloader, 4800); 
-      });
-    }
+    setTimeout(hidePreloader, 4800);
   }
 </script>
 
