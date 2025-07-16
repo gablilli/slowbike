@@ -1,1 +1,1 @@
-Files for slowbikegubbio.it.
+Repo of slowbikegubbio.it's essential files.
