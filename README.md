@@ -25,6 +25,6 @@ This repository contains the static frontend pages and serverless backend code u
 Everything is written in **vanilla JavaScript** — no frameworks, for better loading performance and full control over behavior.
 
 ## 📁 Project Structure
-*/gpx* -> Gpx folder (for integration with gpx.studio and downloads)
-*/pagine* -> Pages folder (where the frontend pages are stored)
-*/js* -> Js Folder (where some js scripts are stored 
+- */gpx* -> Gpx folder (for integration with gpx.studio and downloads)
+- */pagine* -> Pages folder (where the frontend pages are stored)
+- */js* -> Js Folder (where some js scripts are stored 
