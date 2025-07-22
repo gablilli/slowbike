@@ -18,7 +18,7 @@ This repository contains the static frontend pages and serverless backend code u
 |------------|------------------------------|-------------------------------------------|
 | Frontend   | **HTML5**                    | Page structure and semantic layout        |
 |            | **CSS3**                     | Styling with media queries and variables  |
-|            | **JavaScript (ES6+)**        | Interactions, route filters, smooth scroll|
+|            | **JavaScript (ES6+)**        | Interactions, route filters, smooth scroll |
 | Backend    | **JavaScript (Node-style)**  | Serverless functions (e.g. contact forms, downloads) |
 | Assets     | **SVG, WebP, GPX**           | Optimized visuals and route data files    |
 
@@ -26,5 +26,6 @@ Everything is written in **vanilla JavaScript** — no frameworks, for better lo
 
 ## 📁 Project Structure
 - */gpx* -> Gpx folder (for integration with gpx.studio and downloads)
-- */pagine* -> Pages folder (where the frontend pages are stored)
-- */js* -> Js Folder (where some js scripts are stored 
+- */pages* -> Pages folder (where the frontend pages are stored)
+- */js* -> Js Folder (where some js scripts are stored)
+- */animations* -> Site's json lottie animations folder
