@@ -10,7 +10,6 @@ This repository contains the static frontend pages and serverless backend code u
 - Route detail pages with photos, elevation, and GPX downloads
 - Contact form for info and guided tour bookings
 - Minimalist, and mobile-first responsive design
-- Quality of life UI, lenis smooth scroll and gradients 💻 
 
 ## 🧰 Technologies Used
 
