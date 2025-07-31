@@ -17,7 +17,7 @@ This repository contains the static frontend pages and serverless backend code u
 |------------|------------------------------|-------------------------------------------|
 | Frontend   | **HTML5**                    | Page structure and semantic layout        |
 |            | **CSS3**                     | Styling with media queries and variables  |
-|            | **JavaScript (ES6+)**        | Interactions, route filters, smooth scroll |
+|            | **JavaScript (ES6+)**        | Interactions, route filters |
 | Backend    | **JavaScript (Node-style)**  | Serverless functions (e.g. contact forms, downloads) |
 | Assets     | **SVG, WebP, GPX**           | Optimized visuals and route data files    |
 
