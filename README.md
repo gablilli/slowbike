@@ -28,3 +28,4 @@ Everything is written in **vanilla JavaScript** — no frameworks, for better lo
 - */pages* -> Pages folder (where the frontend pages are stored)
 - */js* -> Js Folder (where some js scripts are stored)
 - */animations* -> Site's json lottie animations folder
+an another dependecy of the site could be found [here](https://github.com/gablilli/slowbike-blog)
