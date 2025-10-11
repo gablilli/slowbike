@@ -10,8 +10,15 @@
 (function() {
   'use strict';
 
+  console.log('[iframe-url-sync] Script loaded and executing');
+
   const iframe = document.querySelector('iframe');
-  if (!iframe) return;
+  console.log('[iframe-url-sync] Iframe element:', iframe);
+  
+  if (!iframe) {
+    console.error('[iframe-url-sync] No iframe found! Exiting.');
+    return;
+  }
 
   const WIXSTUDIO_BASE = 'https://gabrielelilli1105.wixstudio.io/slowbike';
   const WIXSTUDIO_COM = 'https://gabrielelilli1105.wixstudio.com/slowbike';
