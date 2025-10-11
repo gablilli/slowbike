@@ -86,6 +86,8 @@
    * Monitor iframe navigation and sync to browser URL
    */
   function monitorIframeNavigation() {
+    console.log('[iframe-url-sync] Starting to monitor iframe navigation');
+    
     try {
       // Try to access iframe content (will fail due to CORS, but we can check src)
       const currentIframeSrc = iframe.contentWindow.location.href;
@@ -100,6 +102,7 @@
       
       const currentSrc = iframe.src;
       if (currentSrc && currentSrc !== lastIframeUrl) {
+        console.log('[iframe-url-sync] Detected iframe URL change:', currentSrc);
         lastIframeUrl = currentSrc;
         
         // Extract path from Wix URL
@@ -109,6 +112,8 @@
         } else if (currentSrc.includes('wixstudio.com/slowbike')) {
           wixPath = currentSrc.replace(WIXSTUDIO_COM, '');
         }
+        
+        console.log('[iframe-url-sync] Extracted Wix path:', wixPath);
         
         // Find matching local path
         let newPath = null;
@@ -120,9 +125,12 @@
           newPath = '/';
         }
         
+        console.log('[iframe-url-sync] Mapped to local path:', newPath);
+        
         // Update browser URL if we found a mapping
         if (newPath && window.location.pathname !== newPath) {
           const newUrl = SITE_BASE + newPath;
+          console.log('[iframe-url-sync] Updating browser URL to:', newUrl);
           window.history.pushState({ path: newPath }, '', newUrl);
         }
       }
@@ -142,12 +150,16 @@
    * Initialize on page load
    */
   function init() {
+    console.log('[iframe-url-sync] Initializing URL sync');
+    console.log('[iframe-url-sync] Iframe element found:', !!iframe);
+    
     // Set initial state
     const initialPath = window.location.pathname;
     window.history.replaceState({ path: initialPath }, '', window.location.href);
     
     // Wait for iframe to be ready
     iframe.addEventListener('load', function() {
+      console.log('[iframe-url-sync] Iframe loaded, src:', iframe.src);
       lastIframeUrl = iframe.src;
       setTimeout(() => {
         monitorIframeNavigation();
@@ -156,6 +168,7 @@
     
     // Start monitoring if already loaded
     if (iframe.contentWindow) {
+      console.log('[iframe-url-sync] Iframe already has contentWindow, starting monitoring');
       monitorIframeNavigation();
     }
   }
