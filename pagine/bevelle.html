@@ -5,32 +5,87 @@
   <title>Tour Bevelle | SlowBike Gubbio</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    iframe {
-      position: fixed;
-      left: 0px;
-      top: -29px;
-      width: 100%;
-      height: 105%;
-      border: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      z-index: 999999;
-    }
-  </style>
+  <link rel="stylesheet" href="/css/subpages.css" />
 </head>
 <body>
 
-  <iframe src="https://gabrielelilli1105.wixstudio.io/slowbike/bevelle"></iframe>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="https://static.wixstatic.com/media/6e451a_67e1a060deac4653af1e1de45458021e~mv2.png/v1/fill/w_49,h_48,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/cropped-SlowBikeGubbio%20(1)_edited.png" alt="SlowBike Gubbio Logo">
+        <span>SlowBikeGubbio</span>
+      </a>
+      <nav class="main-nav">
+        <a href="/">Home</a>
+        <a href="/pagine/percorsi.html">Percorsi</a>
+        <a href="/pagine/blog.html">Blog</a>
+        <a href="/pagine/contattaci.html">Contattaci</a>
+      </nav>
+    </div>
+  </header>
 
-  <script src="/js/mobile-fix.js"></script>
+  <!-- Route Detail -->
+  <section class="route-detail">
+    <div class="container">
+      <div class="route-detail-header">
+        <h1>Tour Bevelle</h1>
+        <p class="route-description">Un percorso attraverso le colline di Bevelle, tra natura e panorami mozzafiato.</p>
+      </div>
+
+      <!-- Route Stats -->
+      <div class="route-stats">
+        <div class="route-stat">
+          <div class="route-stat-label">Distanza</div>
+          <div class="route-stat-value">35 km</div>
+        </div>
+        <div class="route-stat">
+          <div class="route-stat-label">Dislivello</div>
+          <div class="route-stat-value">480 m</div>
+        </div>
+        <div class="route-stat">
+          <div class="route-stat-label">Difficoltà</div>
+          <div class="route-stat-value">Media</div>
+        </div>
+        <div class="route-stat">
+          <div class="route-stat-label">Durata</div>
+          <div class="route-stat-value">2-3 ore</div>
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <div class="route-gallery">
+        <img src="https://static.wixstatic.com/media/6e451a_94afe0ffa0924ff8936a093c34e3d5b9~mv2.jpg/v1/fill/w_400,h_300,al_c,q_80,enc_avif,quality_auto/bike-store-edited%20(1).jpg" alt="Tour Bevelle">
+      </div>
+
+      <!-- Description -->
+      <div class="route-description">
+        <h2>Descrizione del Percorso</h2>
+        <p>Un percorso attraverso le colline di Bevelle, tra natura e panorami mozzafiato.</p>
+        <p>Questo percorso offre un'esperienza unica nel territorio di Gubbio, combinando natura, storia e cultura in un itinerario indimenticabile.</p>
+      </div>
+
+      <!-- GPX Download -->
+      <div class="gpx-section">
+        <h3>Scarica la traccia GPX</h3>
+        <p>Porta con te il percorso sul tuo dispositivo GPS</p>
+        <a href="/gpx/bevelle.gpx" class="btn-download" download>Download GPX</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 SlowBike Gubbio. Tutti i diritti riservati.</p>
+      <div class="footer-links">
+        <a href="/pagine/contattaci.html">Contattaci</a>
+        <a href="/pagine/blog.html">Blog</a>
+        <a href="/pagine/percorsi.html">Tutti i Percorsi</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
