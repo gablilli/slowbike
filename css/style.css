@@ -46,7 +46,7 @@ html, body {
 
 /* Iframe container */
 #iframe-container {
-  position: absolute;
+  position: fixed;
   top: -30px; 
   left: 0;
   width: 100%;
