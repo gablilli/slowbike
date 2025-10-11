@@ -1,4 +1,3 @@
-<script>
   const isMobile = screen.width <= 900;
   const iframe = document.querySelector("#iframe-container iframe");
   const preloader = document.getElementById("preloader");
@@ -19,4 +18,3 @@
   } else {
     setTimeout(hidePreloader, 4800);
   }
-</script>
