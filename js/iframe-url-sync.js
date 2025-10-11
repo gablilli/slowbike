@@ -88,6 +88,24 @@
   function monitorIframeNavigation() {
     console.log('[iframe-url-sync] Starting to monitor iframe navigation');
     
+    // Listen for postMessage events from the iframe
+    window.addEventListener('message', function(event) {
+      // Check if message is from Wix iframe
+      if (event.origin.includes('wixstudio.io') || event.origin.includes('wixstudio.com')) {
+        console.log('[iframe-url-sync] Received postMessage from iframe:', event.data);
+        
+        // Try to extract URL information from the message
+        if (event.data && typeof event.data === 'object') {
+          // Look for URL-related data in various possible formats
+          const url = event.data.url || event.data.href || event.data.location || event.data.path;
+          if (url) {
+            console.log('[iframe-url-sync] URL from postMessage:', url);
+            processIframeUrl(url);
+          }
+        }
+      }
+    });
+    
     try {
       // Try to access iframe content (will fail due to CORS, but we can check src)
       const currentIframeSrc = iframe.contentWindow.location.href;
@@ -96,45 +114,56 @@
       // We'll use a different approach with postMessage or polling
     }
 
-    // Poll iframe src attribute changes
+    // Poll iframe src attribute changes (works when iframe.src actually changes)
     setInterval(() => {
       if (isUpdatingFromHistory) return;
       
       const currentSrc = iframe.src;
       if (currentSrc && currentSrc !== lastIframeUrl) {
-        console.log('[iframe-url-sync] Detected iframe URL change:', currentSrc);
+        console.log('[iframe-url-sync] Detected iframe.src change:', currentSrc);
         lastIframeUrl = currentSrc;
-        
-        // Extract path from Wix URL
-        let wixPath = '';
-        if (currentSrc.includes('wixstudio.io/slowbike')) {
-          wixPath = currentSrc.replace(WIXSTUDIO_BASE, '');
-        } else if (currentSrc.includes('wixstudio.com/slowbike')) {
-          wixPath = currentSrc.replace(WIXSTUDIO_COM, '');
-        }
-        
-        console.log('[iframe-url-sync] Extracted Wix path:', wixPath);
-        
-        // Find matching local path
-        let newPath = null;
-        const fullWixPath = '/slowbike' + wixPath;
-        
-        if (pathMapping[fullWixPath]) {
-          newPath = pathMapping[fullWixPath];
-        } else if (wixPath === '' || wixPath === '/') {
-          newPath = '/';
-        }
-        
-        console.log('[iframe-url-sync] Mapped to local path:', newPath);
-        
-        // Update browser URL if we found a mapping
-        if (newPath && window.location.pathname !== newPath) {
-          const newUrl = SITE_BASE + newPath;
-          console.log('[iframe-url-sync] Updating browser URL to:', newUrl);
-          window.history.pushState({ path: newPath }, '', newUrl);
-        }
+        processIframeUrl(currentSrc);
       }
     }, 500);
+  }
+  
+  /**
+   * Process iframe URL and update browser URL
+   */
+  function processIframeUrl(url) {
+    // Extract path from Wix URL
+    let wixPath = '';
+    if (url.includes('wixstudio.io/slowbike')) {
+      wixPath = url.replace(WIXSTUDIO_BASE, '').split('?')[0].split('#')[0];
+    } else if (url.includes('wixstudio.com/slowbike')) {
+      wixPath = url.replace(WIXSTUDIO_COM, '').split('?')[0].split('#')[0];
+    } else if (url.startsWith('/')) {
+      // Relative path
+      wixPath = url.split('?')[0].split('#')[0];
+    }
+    
+    console.log('[iframe-url-sync] Extracted Wix path:', wixPath);
+    
+    // Find matching local path
+    let newPath = null;
+    const fullWixPath = '/slowbike' + wixPath;
+    
+    if (pathMapping[fullWixPath]) {
+      newPath = pathMapping[fullWixPath];
+    } else if (wixPath === '' || wixPath === '/') {
+      newPath = '/';
+    }
+    
+    console.log('[iframe-url-sync] Mapped to local path:', newPath);
+    
+    // Update browser URL if we found a mapping
+    if (newPath && window.location.pathname !== newPath) {
+      const newUrl = SITE_BASE + newPath;
+      console.log('[iframe-url-sync] Updating browser URL to:', newUrl);
+      window.history.pushState({ path: newPath }, '', newUrl);
+    } else if (!newPath && wixPath) {
+      console.warn('[iframe-url-sync] No mapping found for Wix path:', wixPath);
+    }
   }
 
   /**
