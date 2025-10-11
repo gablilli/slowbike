@@ -5,194 +5,32 @@
   <title>Contattaci | SlowBike Gubbio</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/css/subpages.css" />
   <style>
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      margin-top: 40px;
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
     }
-    .contact-form {
-      background: #f8f8f8;
-      padding: 40px;
-      border-radius: 8px;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #333;
-    }
-    .form-group input,
-    .form-group textarea {
+    iframe {
+      position: fixed;
+      left: 0px;
+      top: -29px;
       width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 16px;
-    }
-    .form-group textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-    .btn-submit {
-      background: #1E9E3A;
-      color: #fff;
-      padding: 15px 40px;
+      height: 105%;
       border: none;
-      border-radius: 4px;
-      font-size: 18px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .btn-submit:hover {
-      background: #168c32;
-    }
-    .contact-info h3 {
-      color: #1E9E3A;
-      margin-bottom: 20px;
-    }
-    .contact-info p {
-      margin-bottom: 15px;
-      line-height: 1.8;
-    }
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 30px;
-    }
-    .social-links a {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #1E9E3A;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background 0.3s;
-    }
-    .social-links a:hover {
-      background: #168c32;
-    }
-    @media (max-width: 768px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      z-index: 999999;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container">
-      <a href="/" class="logo">
-        <img src="https://static.wixstatic.com/media/6e451a_67e1a060deac4653af1e1de45458021e~mv2.png/v1/fill/w_49,h_48,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/cropped-SlowBikeGubbio%20(1)_edited.png" alt="SlowBike Gubbio Logo">
-        <span>SlowBikeGubbio</span>
-      </a>
-      <nav class="main-nav">
-        <a href="/">Home</a>
-        <a href="/pagine/percorsi.html">Percorsi</a>
-        <a href="/pagine/blog.html">Blog</a>
-        <a href="/pagine/contattaci.html" class="active">Contattaci</a>
-      </nav>
-    </div>
-  </header>
+  <iframe src="https://gabrielelilli1105.wixstudio.com/slowbike/contattaci"></iframe>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <h1>Contattaci</h1>
-    <p>Hai domande o vuoi organizzare un tour? Siamo qui per aiutarti!</p>
-  </section>
-
-  <!-- Contact Content -->
-  <section class="content-section">
-    <div class="container">
-      <div class="contact-grid">
-        
-        <!-- Contact Form -->
-        <div class="contact-form">
-          <h2>Invia un Messaggio</h2>
-          <form id="contact-form" action="#" method="post">
-            <div class="form-group">
-              <label for="name">Nome *</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Telefono</label>
-              <input type="tel" id="phone" name="phone">
-            </div>
-            <div class="form-group">
-              <label for="message">Messaggio *</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Invia Messaggio</button>
-          </form>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <h3>Informazioni di Contatto</h3>
-          <p>
-            <strong>Email:</strong><br>
-            info@slowbikegubbio.it
-          </p>
-          <p>
-            <strong>Telefono:</strong><br>
-            +39 XXX XXX XXXX
-          </p>
-          <p>
-            <strong>Indirizzo:</strong><br>
-            Gubbio (PG)<br>
-            Umbria, Italia
-          </p>
-          
-          <h3 style="margin-top: 40px;">Seguici sui Social</h3>
-          <div class="social-links">
-            <a href="#" target="_blank">Facebook</a>
-            <a href="#" target="_blank">Instagram</a>
-          </div>
-          
-          <h3 style="margin-top: 40px;">Orari</h3>
-          <p>
-            I nostri tour sono disponibili su prenotazione.<br>
-            Contattaci per organizzare la tua esperienza!
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 SlowBike Gubbio. Tutti i diritti riservati.</p>
-      <div class="footer-links">
-        <a href="/pagine/blog.html">Blog</a>
-        <a href="/pagine/percorsi.html">Tutti i Percorsi</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Simple form handling
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Grazie per il tuo messaggio! Ti risponderemo al più presto.');
-      this.reset();
-    });
-  </script>
+  <script src="/js/mobile-fix.js"></script>
 
 </body>
 </html>

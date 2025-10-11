@@ -5,133 +5,32 @@
   <title>Blog | SlowBike Gubbio</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/css/subpages.css" />
   <style>
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .blog-card {
-      background: #fff;
-      border-radius: 8px;
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
       overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .blog-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-    .blog-card img {
+    iframe {
+      position: fixed;
+      left: 0px;
+      top: -29px;
       width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-    .blog-card-content {
-      padding: 20px;
-    }
-    .blog-card-date {
-      color: #1E9E3A;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-    .blog-card h3 {
-      font-size: 22px;
-      color: #333;
-      margin-bottom: 15px;
-    }
-    .blog-card p {
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .blog-card .btn-read-more {
-      display: inline-block;
-      color: #1E9E3A;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    .blog-card .btn-read-more:hover {
-      color: #168c32;
+      height: 105%;
+      border: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      z-index: 999999;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container">
-      <a href="/" class="logo">
-        <img src="https://static.wixstatic.com/media/6e451a_67e1a060deac4653af1e1de45458021e~mv2.png/v1/fill/w_49,h_48,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/cropped-SlowBikeGubbio%20(1)_edited.png" alt="SlowBike Gubbio Logo">
-        <span>SlowBikeGubbio</span>
-      </a>
-      <nav class="main-nav">
-        <a href="/">Home</a>
-        <a href="/pagine/percorsi.html">Percorsi</a>
-        <a href="/pagine/blog.html" class="active">Blog</a>
-        <a href="/pagine/contattaci.html">Contattaci</a>
-      </nav>
-    </div>
-  </header>
+  <iframe src="https://gabrielelilli1105.wixstudio.com/slowbike/blog"></iframe>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <h1>Blog</h1>
-    <p>Storie, consigli e avventure in bicicletta nel territorio di Gubbio</p>
-  </section>
-
-  <!-- Blog Content -->
-  <section class="content-section">
-    <div class="container">
-      <div class="blog-grid">
-        
-        <article class="blog-card">
-          <img src="https://static.wixstatic.com/media/6e451a_40b29e78833c4f95949b9f9d319add79~mv2.jpg/v1/fill/w_400,h_250,al_c,q_80,enc_avif,quality_auto/6e451a_40b29e78833c4f95949b9f9d319add79~mv2.jpg" alt="Blog Post">
-          <div class="blog-card-content">
-            <div class="blog-card-date">15 Marzo 2025</div>
-            <h3>La Bellezza delle Colline Umbre</h3>
-            <p>Scoprire il territorio di Gubbio in bicicletta è un'esperienza unica che permette di apprezzare la bellezza delle colline umbre...</p>
-            <a href="#" class="btn-read-more">Leggi tutto →</a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <img src="https://static.wixstatic.com/media/6e451a_12c240cfc89545849abfdc4fe78fcb2d~mv2.jpg/v1/fill/w_400,h_250,al_c,q_80,enc_avif,quality_auto/6e451a_12c240cfc89545849abfdc4fe78fcb2d~mv2.jpg" alt="Blog Post">
-          <div class="blog-card-content">
-            <div class="blog-card-date">10 Marzo 2025</div>
-            <h3>Consigli per Ciclisti Principianti</h3>
-            <p>Iniziare a pedalare può sembrare difficile, ma con i giusti consigli e un po' di preparazione...</p>
-            <a href="#" class="btn-read-more">Leggi tutto →</a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <img src="https://static.wixstatic.com/media/6e451a_29f31e95d54a43468f048c4102661219f000.jpg/v1/fill/w_400,h_250,al_c,q_80,enc_avif,quality_auto/6e451a_29f31e95d54a43468f048c4102661219f000.jpg" alt="Blog Post">
-          <div class="blog-card-content">
-            <div class="blog-card-date">5 Marzo 2025</div>
-            <h3>I Castelli Medievali di Gubbio</h3>
-            <p>Il Tour dei Castelli è uno dei percorsi più affascinanti del nostro territorio...</p>
-            <a href="#" class="btn-read-more">Leggi tutto →</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 SlowBike Gubbio. Tutti i diritti riservati.</p>
-      <div class="footer-links">
-        <a href="/pagine/contattaci.html">Contattaci</a>
-        <a href="/pagine/percorsi.html">Tutti i Percorsi</a>
-      </div>
-    </div>
-  </footer>
+  <script src="/js/mobile-fix.js"></script>
 
 </body>
 </html>
