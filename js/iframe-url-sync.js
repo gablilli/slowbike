@@ -108,21 +108,31 @@
   function monitorIframeNavigation() {
     console.log('[iframe-url-sync] Starting to monitor iframe navigation');
     
-    // Listen for postMessage events from the iframe
+    // Listen for ALL postMessage events for debugging
     window.addEventListener('message', function(event) {
+      // Log all messages for debugging
+      console.log('[iframe-url-sync] Received postMessage - Origin:', event.origin, 'Data:', event.data);
+      
       // Check if message is from Wix iframe
       if (event.origin.includes('wixstudio.io') || event.origin.includes('wixstudio.com')) {
-        console.log('[iframe-url-sync] Received postMessage from iframe:', event.data);
+        console.log('[iframe-url-sync] ✓ Message from Wix iframe confirmed');
         
         // Try to extract URL information from the message
         if (event.data && typeof event.data === 'object') {
+          console.log('[iframe-url-sync] Message data is object, checking for URL...');
           // Look for URL-related data in various possible formats
           const url = event.data.url || event.data.href || event.data.location || event.data.path;
           if (url) {
-            console.log('[iframe-url-sync] URL from postMessage:', url);
+            console.log('[iframe-url-sync] ✓ URL from postMessage:', url);
             processIframeUrl(url);
+          } else {
+            console.warn('[iframe-url-sync] ✗ No URL found in message data. Data keys:', Object.keys(event.data));
           }
+        } else {
+          console.warn('[iframe-url-sync] ✗ Message data is not an object:', typeof event.data);
         }
+      } else {
+        console.log('[iframe-url-sync] Message from different origin (ignored):', event.origin);
       }
     });
     
