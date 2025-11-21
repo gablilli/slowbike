@@ -37,6 +37,19 @@
     '/slowbike/contattaci': '/pagine/contattaci.html',
     '/slowbike/blog': '/pagine/blog.html'
   };
+  
+  // Map paths to page titles
+  const titleMapping = {
+    '/': 'Home | SlowBike Gubbio',
+    '/pagine/percorsi.html': 'Percorsi | SlowBike Gubbio',
+    '/pagine/montecucco.html': 'Percorso del Monte Cucco | SlowBike Gubbio',
+    '/pagine/tourcastelli.html': 'Tour dei Castelli | SlowBike Gubbio',
+    '/pagine/bevelle.html': 'Bevelle | SlowBike Gubbio',
+    '/pagine/laghetti-scagliae.html': 'Laghetti di Scagliae | SlowBike Gubbio',
+    '/pagine/valdichiascio.html': 'Val di Chiascio | SlowBike Gubbio',
+    '/pagine/contattaci.html': 'Contattaci | SlowBike Gubbio',
+    '/pagine/blog.html': 'Blog | SlowBike Gubbio'
+  };
 
   // Reverse mapping for local to Wix
   const reverseMapping = {};
@@ -163,11 +176,18 @@
     
     console.log('[iframe-url-sync] Mapped to local path:', newPath);
     
-    // Update browser URL if we found a mapping
+    // Update browser URL and title if we found a mapping
     if (newPath && window.location.pathname !== newPath) {
       const newUrl = SITE_BASE + newPath;
       console.log('[iframe-url-sync] Updating browser URL to:', newUrl);
-      window.history.pushState({ path: newPath }, '', newUrl);
+      
+      // Update page title
+      const newTitle = titleMapping[newPath] || 'SlowBike Gubbio';
+      document.title = newTitle;
+      console.log('[iframe-url-sync] Updated page title to:', newTitle);
+      
+      // Update browser URL
+      window.history.pushState({ path: newPath }, newTitle, newUrl);
     } else if (!newPath && wixPath) {
       console.warn('[iframe-url-sync] No mapping found for Wix path:', wixPath);
     }
