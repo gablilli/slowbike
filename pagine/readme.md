@@ -1,1 +1,1 @@
-Pages on hosting, connected to wixstudio. (Code for them in > wixpages)
+Pages of the site, connected to wixstudio.
