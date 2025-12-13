@@ -2,29 +2,61 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="SlowBike Gubbio - Percorsi ed esperienze in sella nel territorio di Gubbio">
-  <title>Home | SlowBike Gubbio</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="description" content="SlowBike Gubbio - Percorsi ed esperienze in e-bike tra Gubbio e l’Umbria. Vivi il turismo lento immerso nella natura e scopri itinerari autentici. Affiliata CSEN.">
+  <meta name="keywords" content="SlowBike Gubbio, e-bike Gubbio, escursioni in bici Umbria, percorsi cicloturistici Gubbio, esperienze outdoor Umbria, turismo lento Gubbio, tour in e-bike Umbria, CSEN">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Home | SlowBike Gubbio</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SlowBike Gubbio - Esperienze e percorsi in e-bike in Umbria">
+  <meta property="og:description" content="Scopri esperienze in e-bike e percorsi tra Gubbio e l’Umbria. Vivi il territorio con lentezza e autenticità. Affiliata CSEN.">
+  <meta property="og:url" content="https://slowbikegubbio.it">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://slowbikegubbio.it/static/og.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "SlowBike Gubbio",
+    "url": "https://slowbikegubbio.it",
+    "description": "Percorsi ed esperienze in e-bike nel territorio di Gubbio e dell’Umbria. Tour guidati e itinerari per chi ama il turismo lento e la natura. Affiliata CSEN.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gubbio",
+      "addressRegion": "Umbria",
+      "addressCountry": "IT"
+    }
+  }
+  </script>
 </head>
 
 <body>
 
-  <!-- PRELOADER -->
-  <div id="preloader">
-    <video autoplay muted playsinline>
-      <source src="https://slowbikegubbio.it/preloader3.mp4" type="video/mp4">
-      Il tuo browser non supporta video HTML5.
-    </video>
-  </div>
+<!-- seo invisibile -->
+<div id="seo-hidden">
+  <h1>SlowBike Gubbio – Esperienze in e-bike e percorsi tra Gubbio e l’Umbria</h1>
+  <p>Scopri itinerari e avventure nel cuore dell’Umbria con SlowBike Gubbio. Vivi un’esperienza autentica tra natura, cultura e turismo lento. Esplora percorsi cicloturistici unici, ideali per famiglie, sportivi e appassionati di outdoor. SlowBike Gubbio è affiliata CSEN.</p>
+</div>
 
-  <!-- IFRAME -->
-  <div id="iframe-container">
-    <iframe src="https://gabrielelilli1105.wixstudio.io/slowbike" scrolling="yes"></iframe>
-  </div>
+<!-- PRELOADER -->
+<div id="preloader">
+  <video autoplay muted playsinline>
+    <source src="https://slowbikegubbio.it/static/preloader.mp4" type="video/mp4">
+    Il tuo browser non supporta il video HTML5.
+  </video>
+</div>
 
-  <!-- SCRIPT -->
-  <script src="/js/index.js"></script>
+<!-- IFRAME -->
+<div id="iframe-container">
+  <iframe src="https://gabrielelilli1105.wixstudio.io/slowbike" scrolling="yes"></iframe>
+</div>
+
+<!-- SCRIPT -->
+<script src="/static/js/index.js" defer</script>
+
 </body>
 </html>
