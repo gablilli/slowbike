@@ -1,3 +1,4 @@
+[<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
 # SlowBike Gubbio - A site to discover bike routes in the city of Gubbio 🚵‍♂️
 
 **SlowBike Gubbio** is an association of local bikers who love their town and want to help others explore Gubbio's hidden gems and natural trails by bike.
@@ -17,16 +18,14 @@ This repository contains the static frontend pages and serverless backend code u
 |------------|------------------------------|-------------------------------------------|
 | Frontend   | **HTML5**                    | Page structure and semantic layout        |
 |            | **CSS3**                     | Styling with media queries and variables  |
-|            | **JavaScript (ES6+)**        | Interactions, route filters |
 | Backend    | **JavaScript (Node-style)**  | Serverless functions (e.g. contact forms, downloads) |
 | Assets     | **SVG, WebP, GPX**           | Optimized visuals and route data files    |
 
-Everything is written in **vanilla JavaScript** — no frameworks, for better loading performance and full control over behavior.
+Everything is written in **vanilla JavaScript** — no frameworks, for better loading performance and full control over behavior. FTP Deploy action deploys automatically on Aruba hosting on every push on main.
 
 ## 📁 Project Structure
 - */gpx* -> Gpx folder (for integration with gpx.studio and downloads)
 - */pages* -> Pages folder (where the frontend pages are stored)
-- */js* -> Js Folder (where some js scripts are stored)
-- */animations* -> Site's json lottie animations folder
+- */static/* -> static Folder (where the magic happens)
 
-> an another dependecy of the site could be found [here](https://github.com/gablilli/slowbike.wix)
+> an another dependency of the site could be found [here](https://github.com/gablilli/slowbike.wix)
