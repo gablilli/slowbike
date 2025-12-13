@@ -1,3 +1,4 @@
+/* reset base */
 html, body {
   margin: 0;
   padding: 0;
@@ -22,12 +23,10 @@ html, body {
   transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* Animazione salita */
 #preloader.slide-up {
   transform: translateY(-100%);
 }
 
-/* Video desktop */
 #preloader video {
   width: 100vw;
   height: 100vh;
@@ -36,7 +35,6 @@ html, body {
   transform: scale(1.05);
 }
 
-/* Adattamento mobile */
 @media (max-width: 900px) {
   #preloader video {
     object-fit: contain;
@@ -44,10 +42,10 @@ html, body {
   }
 }
 
-/* Iframe container */
+/* iframe */
 #iframe-container {
   position: absolute;
-  top: -30px; 
+  top: -30px;
   left: 0;
   width: 100%;
   height: calc(100% + 30px);
@@ -61,4 +59,13 @@ html, body {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* seo hidden */
+#seo-hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
